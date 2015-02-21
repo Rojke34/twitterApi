@@ -13,4 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.countdown
 //= require_tree .
+
+
+
+
+            /* Change the launch date according to the date you want to set.
+            Please take note that months ranges from 0-11 like an array setup. 
+            */
+            var launchdate = new Date(2015, 9 - 1, 3);
+            $('#counter').countdown({
+                until: launchdate
+            });
+ 
