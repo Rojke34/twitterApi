@@ -11,19 +11,17 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.countdown
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery.countdown
 //= require_tree .
 
 
-
-
-            /* Change the launch date according to the date you want to set.
-            Please take note that months ranges from 0-11 like an array setup. 
-            */
-            var launchdate = new Date(2015, 9 - 1, 3);
-            $('#counter').countdown({
-                until: launchdate
-            });
+$('#counter').countdown('2015/02/23', function(event) {
+	var timeReg = event.strftime('%w weeks %d days %H : %M : %S'); 
+	if( timeReg !== "0 weeks 0 days 0 : 0 : 0")
+  	$(this).html( timeReg );
+  else
+  	alert("Time out")
+});
  
