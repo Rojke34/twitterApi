@@ -33,6 +33,13 @@ gem 'spring',        group: :development
 # Use unicorn as the app server
 # gem 'unicorn'
 
+gem 'omniauth'
+gem 'httparty'
+
+gem 'authlogic', '2.1.6'
+# set up oauth capabilities. Note: :lib is replaced with :require in rails 3
+gem 'authlogic-oauth', '1.0.8', :require => 'authlogic_oauth'
+gem 'oauth', '0.4.4'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

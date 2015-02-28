@@ -17,7 +17,7 @@
 //= require_tree .
 
 
-$('#counter').countdown('2015/02/23', function(event) {
+$('#counter').countdown('2015/03/25', function(event) {
 	var timeReg = event.strftime('%w weeks %d days %H : %M : %S'); 
 	if( timeReg !== "0 weeks 0 days 0 : 0 : 0")
   	$(this).html( timeReg );
