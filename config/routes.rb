@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root 'tweets#index'
 
+  get 'tweet' => 'tweets#new'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
