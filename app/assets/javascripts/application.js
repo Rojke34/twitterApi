@@ -106,7 +106,9 @@ var consejos = [
 
 var tweetCurrent = 0;
 
-$('#counter').countdown('2015/03/01 19:35:00', function(event) {
+$("#tweet").html(consejos[tweetCurrent]);
+
+$('#counter').countdown('2015/04/01 19:35:00', function(event) {
 	var timeReg = event.strftime('%w weeks %d days %H : %M : %S'); 
 	
 	var format = '%H : %M : %S';
@@ -133,22 +135,4 @@ $('#counter').countdown('2015/03/01 19:35:00', function(event) {
     }
     
 });
-
-
-// $('#counter').countdown('2016/10/10 12:34:56').on('update.countdown', function(event) {
-  // var format = '%H:%M:%S';
-
-  // if(event.offset.days > 0) {
-  //   format = '%-d day%!d ' + format;
-  // }
-  // if(event.offset.weeks > 0) {
-  //   format = '%-w week%!w ' + format;
-  // }
-  // $(this).html(event.strftime(format));
-
-//  }).on('finish.countdown', function(event) {
-//    $(this).html('0 Tweets!');
-//      .parent().addClass('disabled')
-
-// });
  

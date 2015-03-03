@@ -1,19 +1,13 @@
 // Place all the styles related to the tweets controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com/    
 
-
-    
+html,body{ margin: 0; padding: 0; height: 100%;}
 body {
     color: #dadada;
     line-height: 1.75;
     width: 100%;
-    background: url('http://demos.themecatcher.net/storm/images/backgrounds/sunrise.jpg') no-repeat center center fixed;
     font-family: 'Open Sans';
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 }
 
 h1,h2{
@@ -28,10 +22,8 @@ h1 {
     font-size: 43px;
     font-family: Montserrat;
     font-weight: 700;
-    border: 2px dashed #fff;
-    margin-top: 50px;
+    margin: 0px;
     padding: 10px;
-    cursor: pointer;
     -webkit-transition: all .8s ease;
     -moz-transition: all .8s ease;
     -o-transition: all .8s ease;
@@ -49,12 +41,12 @@ h1:hover {
 h2 {
     font-size: 30px;
     font-weight: 300;
-    margin-top: 30px;
+    margin-top: 0px;
 }
 
 .container {
     width: 58%;
-    margin: 40px auto 0;
+    margin: 0 auto;
 }
 
 .details {
@@ -64,76 +56,7 @@ h2 {
     text-shadow: 2px 2px 2px rgba(150,150,150,1);
 }
 
-button,input,textarea {
-    font-size: 16px;
-    max-width: 100%;
-    margin: 0;
-    border-radius: 0;
-    vertical-align: baseline;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
 
-textarea {
-    overflow: auto;
-    vertical-align: top;
-}
-
-input,textarea {
-    background: #6e6e6e;
-    background: rgba(169,169,169,0.3);
-    border: 1px solid #f4f4f4;
-    color: #fff;
-    font-weight: 700;
-    letter-spacing: 1px;
-    padding: 12px;
-    text-transform: uppercase;
-}
-
-input:focus,textarea:focus {
-    outline: 0;
-}
-
-button:hover,button:focus,input[type=submit]:focus,input[type=submit]:hover {
-    background: #ff8721;
-    color: #fff;
-    outline: 0;
-}
-
-button,input[type=submit] {
-    -webkit-appearance: button;
-    cursor: pointer;
-}
-
-button,input[type=submit] {
-    background: #ffab00;
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    transition: all .5s;
-}
-
-.form-field {
-    position: relative;
-}
-
-::-webkit-input-placeholder {
-    color: #fff;
-}
-
-::-moz-placeholder {
-    color: #fff;
-    opacity: 1;
-}
-
-::-ms-input-placeholder {
-    color: #fff;
-    opacity: 1;
-}
-
-.placeholder {
-    color: #ff;
-}
 
 #counter {
     margin-top: 28px;
@@ -173,33 +96,7 @@ button,input[type=submit] {
     line-height: 1;
 }
 
-#subscribe {
-    max-width: 610px;
-    position: relative;
-    margin: 20px auto 0;
-}
 
-#subscribe-form .form-field {
-    margin-right: 180px;
-}
-
-#subcribe_email {
-    border-right: 0;
-}
-
-#subscribe-form .form-submit {
-    height: 50px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 180px;
-}
-
-#subcribe_email,#subscribe_submit {
-    width: 100%;
-    display: block;
-    height: 55px;
-}
 
 footer {
     font-size: 13px;
@@ -211,6 +108,24 @@ footer {
 
 footer a {
     color: #fff;
+}
+
+#main{
+    background: url(http://demos.themecatcher.net/storm/images/backgrounds/sunrise.jpg) 50% 0 no-repeat fixed;
+}
+#config{
+    background: url(https://ununsplash.imgix.net/photo-1414788020357-3690cfdab669?q=75&fm=jpg&s=da7d3842604f06bf5c6ded7f4fe7aeed) 50% 0 no-repeat fixed;
+}
+#main, #config{
+    margin: 0 auto;
+    max-width: 1920px;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 @media only screen and (max-width: 720px) {
@@ -234,28 +149,14 @@ footer a {
         padding: 28px 6px 20px;
     }
 
-    #subcribe_email{border: 1px solid #fff;}
-
-    #subscribe-form .form-submit {
-        margin: 0 auto;
-        right: auto;
-        position: static;
-    }
-
-    #subscribe-form .form-field {
-        margin: 0 0 14px;
-    }
 }
 
 @media only screen and (max-width: 480px) {
-    h1 {
-        font-size: 30px;
-    }
-
-     h2{font-size: 25px;}
+    h1 { font-size: 30px; }
+    h2{font-size: 25px;}
 
     .countdown_section {
-    border: none;
+        border: none;
         padding: 20px 20px;
         font-size: 13px;
         text-align: center;
@@ -263,7 +164,6 @@ footer a {
     .countdown_amount {
         font-size: 40px;
         padding: 0 0 10px 0;
-
     }
 
     #counter{width: 30%;  margin:0 auto; }
