@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150221204158) do
+ActiveRecord::Schema.define(version: 20150303194312) do
 
   create_table "tweets", force: true do |t|
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "status"
+    t.date     "date"
   end
 
 end
