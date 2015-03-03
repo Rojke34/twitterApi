@@ -17,7 +17,9 @@
 //= require_tree .
 
 var consejos = [
-"El tweet se ha enviado automáticamente. Prueba número uno con fecha 2015/03/01 19:35:00 XD",
+"El tweet se ha enviado automáticamente. Prueba número dos con fecha 2015/03/03 18:00:00",
+"El tweet se ha enviado automáticamente. Prueba número tres con fecha 2015/03/03 18:01:00",
+"Se ha enviado automáticamente. Prueba uno con usuario fecha 2015/03/03 18:02:00 @11CaroPachecoG D: El otro mes, más tiempo para el libro",
 "1. Fija tu atención en ti mismo, sé consciente en cada instante de lo que piensas, sientes, deseas y haces.",
 "2. Termina siempre lo que comenzaste.",
 "3. Haz lo que estás haciendo lo mejor posible.",
@@ -105,13 +107,16 @@ var consejos = [
 
 
 var tweetCurrent = 0;
+var min = 0;
 
-$("#tweet").html(consejos[tweetCurrent]);
 
-$('#counter').countdown('2015/04/01 19:35:00', function(event) {
-	var timeReg = event.strftime('%w weeks %d days %H : %M : %S'); 
-	
-	var format = '%H : %M : %S';
+
+
+var llamada = function(msj, date){
+  $('#counter').countdown(date, function(event) {
+  var timeReg = event.strftime('%w weeks %d days %H : %M : %S'); 
+  
+  var format = '%H : %M : %S';
 
   if(event.offset.days > 0) {
     format = '%-d day%!d ' + format;
@@ -124,15 +129,32 @@ $('#counter').countdown('2015/04/01 19:35:00', function(event) {
 }).on('finish.countdown', function(event) {
     
     if( tweetCurrent < consejos.length){
-    	//send the tweet 
-    	var params = consejos[tweetCurrent];
-      tweetCurrent += 1;
-      $.get('/tweet?content='+params, function(data){ 
-       alert(data); 
-    	});
+      //send the tweet 
+      
+      $.get('/tweet?content='+msj, function(data){ 
+        tweetCurrent += 1;
+        min += 1;
+        obteinMensaje();
+      });
     }else{
       $(this).html('0 Tweets!');
     }
     
 });
+}
+
+
+var obteinMensaje = function(){
+  var msj = consejos[tweetCurrent];
+  $("#tweet").html(msj);
+ 
+  llamada( msj, '2015/03/03 18:0'+min+':00' )
+}
+
+
+obteinMensaje()
+
+
+
+
  

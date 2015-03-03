@@ -5,9 +5,12 @@
 		<div class="container">
 			<h2>Tweet</h2>
 			<p id="tweet"></p>
-			<p class="details">NECESITAS ESPERAR...</p>
+			<p class="details">You need to wait...</p>
 			<div id="counter"></div>
+			<% @tw.each do |t| %>
 
+				<%= t.content %> <br>
+			<%end%>
 			<footer>
 				<a href="http://www.twitter.com/Rojke34" target="_blank">Copyright- @Rojke34 - 2015</a>
 			</footer>

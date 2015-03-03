@@ -4,6 +4,7 @@ require 'json'
 class TweetsController < ApplicationController
 
 	def index
+		@tw = Tweet.all
 	end
 
 	def new
@@ -22,9 +23,7 @@ class TweetsController < ApplicationController
 		path    = "/1.1/statuses/update.json"
 		address = URI("#{baseurl}#{path}")
 		request = Net::HTTP::Post.new address.request_uri
-		request.set_form_data(
-		  "status" => params[:content],
-		)
+		request.set_form_data("status" => params[:content])
 
 		# Set up HTTP.
 		http             = Net::HTTP.new address.host, address.port
