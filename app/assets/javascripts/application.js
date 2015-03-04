@@ -107,7 +107,7 @@ var consejos = [
 
 
 var tweetCurrent = 0;
-var min = 0;
+var min = 1;
 
 
 
@@ -148,7 +148,7 @@ var obteinMensaje = function(){
   var msj = consejos[tweetCurrent];
   $("#tweet").html(msj);
  
-  llamada( msj, '2015/03/03 18:0'+min+':00' )
+  llamada( msj, '2015/03/03 17:5'+min+':00' )
 }
 
 
