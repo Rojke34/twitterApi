@@ -17,9 +17,6 @@
 //= require_tree .
 
 var consejos = [
-"El tweet se ha enviado automáticamente. Prueba número dos con fecha 2015/03/03 18:00:00",
-"El tweet se ha enviado automáticamente. Prueba número tres con fecha 2015/03/03 18:01:00",
-"Se ha enviado automáticamente. Prueba uno con usuario fecha 2015/03/03 18:02:00 @11CaroPachecoG D: El otro mes, más tiempo para el libro",
 "1. Fija tu atención en ti mismo, sé consciente en cada instante de lo que piensas, sientes, deseas y haces.",
 "2. Termina siempre lo que comenzaste.",
 "3. Haz lo que estás haciendo lo mejor posible.",
@@ -105,19 +102,12 @@ var consejos = [
 "83. Si estás meditando y llega un diablo, pon a ese diablo a meditar."
 ]
 
-
 var tweetCurrent = 0;
-var min = 1;
-
-
-
 
 var llamada = function(msj, date){
   $('#counter').countdown(date, function(event) {
   var timeReg = event.strftime('%w weeks %d days %H : %M : %S'); 
-  
   var format = '%H : %M : %S';
-
   if(event.offset.days > 0) {
     format = '%-d day%!d ' + format;
   }
@@ -125,32 +115,29 @@ var llamada = function(msj, date){
     format = '%-w week%!w ' + format;
   }
   $(this).html(event.strftime(format));
-
 }).on('finish.countdown', function(event) {
-    
-    if( tweetCurrent < consejos.length){
+    if( tweetCurrent < consejos.length ){
       //send the tweet 
-      
       $.get('/tweet?content='+msj, function(data){ 
         tweetCurrent += 1;
-        min += 1;
-        obteinMensaje();
+
+        setTimeout(function() {
+          obteinMensaje();
+        }, 1000);
+        
       });
     }else{
       $(this).html('0 Tweets!');
     }
-    
 });
 }
-
 
 var obteinMensaje = function(){
   var msj = consejos[tweetCurrent];
   $("#tweet").html(msj);
  
-  llamada( msj, '2015/03/03 17:5'+min+':00' )
+  llamada( msj, '2015/03/04 17:5'+min+':00' )
 }
-
 
 obteinMensaje()
 
