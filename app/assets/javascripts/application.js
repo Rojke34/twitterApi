@@ -99,47 +99,80 @@ var consejos = [
 "80. No te vanaglories de tus debilidades.",
 "81. Nunca visites a alguien sólo por llenar tu tiempo.",
 "82. Obtén para repartir.",
-"83. Si estás meditando y llega un diablo, pon a ese diablo a meditar."
+"83. Si estás meditando y llega un diablo, pon a ese diablo a meditar.",
+"84. - G. I. Gurdjieff"
 ]
 
-var tweetCurrent = 0;
+var len = consejos.length;
+var pos = 0;
+$("#tweet").html(consejos[pos]);
 
-var llamada = function(msj, date){
-  $('#counter').countdown(date, function(event) {
-  var timeReg = event.strftime('%w weeks %d days %H : %M : %S'); 
-  var format = '%H : %M : %S';
-  if(event.offset.days > 0) {
-    format = '%-d day%!d ' + format;
+function send(  ){
+  if ( pos < len){
+   setTimeout(function(){ 
+     $("#tweet").html(consejos[pos]);
+     $.get('/tweet?content=' + consejos[pos], function(data){ console.log(data); })  
+     pos += 1;
+     send();
+   }, 5000);  
+  }else{
+    setTimeout(function(){ alert("se acabo!"); }, 3000); 
   }
-  if(event.offset.weeks > 0) {
-    format = '%-w week%!w ' + format;
-  }
-  $(this).html(event.strftime(format));
-}).on('finish.countdown', function(event) {
-    if( tweetCurrent < consejos.length ){
-      //send the tweet 
-      $.get('/tweet?content='+msj, function(data){ 
-        tweetCurrent += 1;
+}
 
-        setTimeout(function() {
-          obteinMensaje();
-        }, 1000);
+send();
+
+
+
+// var wallie = [ 
+//   "Hi, @PtManuel please don't forget to log your 🚨 🚧 🚔 Wallie 🚔 🚧 🚨.",
+//   "Hi, @yrral1986 please don't forget to log your 🚨 🚧 🚔 Wallie 🚔 🚧 🚨.",
+//   "Hi, @Mario_Henriquez please don't forget to log your 🚨 🚧 🚔 Wallie 🚔 🚧 🚨.",
+//   "Hi, @Cristianmoslo please don't forget to log your 🚨 🚧 🚔 Wallie 🚔 🚧 🚨.",
+//   "Hi, @BryanMoslo please don't forget to log your 🚨 🚧 🚔 Wallie 🚔 🚧 🚨.",
+//   "Hi, @apaganobeleno please don't forget to log your 🚨 🚧 🚔 Wallie 🚔 🚧 🚨.",
+//   "Hi, @jekvillalobos please don't forget to log your 🚨 🚧 🚔 Wallie 🚔 🚧 🚨.",
+//   "Hi, @Rojke34 please don't forget to log your 🚨 🚧 🚔 Wallie 🚔 🚧 🚨."
+// ]
+
+// var tweetCurrent = 0;
+
+// var llamada = function(msj, date){
+//   $('#counter').countdown(date, function(event) {
+//   var timeReg = event.strftime('%w weeks %d days %H : %M : %S'); 
+//   var format = '%H : %M : %S';
+//   if(event.offset.days > 0) {
+//     format = '%-d day%!d ' + format;
+//   }
+//   if(event.offset.weeks > 0) {
+//     format = '%-w week%!w ' + format;
+//   }
+//   $(this).html(event.strftime(format));
+// }).on('finish.countdown', function(event) {
+//     if( tweetCurrent < wallie.length ){
+//       //send the tweet 
+//       $.get('/tweet?content='+msj, function(data){ 
+//         tweetCurrent += 1;
+
+//         setTimeout(function() {
+//           obteinMensaje();
+//         }, 1000);
         
-      });
-    }else{
-      $(this).html('0 Tweets!');
-    }
-});
-}
+//       });
+//     }else{
+//       $(this).html('0 Tweets!');
+//     }
+// });
+// }
 
-var obteinMensaje = function(){
-  var msj = consejos[tweetCurrent];
-  $("#tweet").html(msj);
+// var obteinMensaje = function(){
+//   var msj = wallie[tweetCurrent];
+//   $("#tweet").html(msj);
  
-  llamada( msj, '2015/03/04 17:5'+min+':00' )
-}
+//   llamada( msj, '2015/03/20 17:30:00' )
+// }
 
-obteinMensaje()
+// obteinMensaje()
 
 
 
