@@ -13,8 +13,8 @@ class TweetsController < ApplicationController
 		# You will need to set your application type to
 		# read/write on dev.twitter.com and regenerate your access
 		# token.  Enter the new values here:
-		consumer_key = OAuth::Consumer.new("imjW25kHwBHw8FlQjWTEsaXLN", "fV5eRwrNmT3eDC4DrMJtSvaaedcFtVQqhAjXSIOQ2Q2MT7TSq7")
-		access_token = OAuth::Token.new("220523913-EPtAjuWwcQNI47c7CkVkrSBmSkwc5J1MpDpOmLyN", "Px9Eax9z8JgUptkJRwiv8fAvgNC2W5xgdWmv2iuLGTAGv")
+		consumer_key = OAuth::Consumer.new("", "")
+		access_token = OAuth::Token.new("", "")
 
 		# Note that the type of request has changed to POST.
 		# The request parameters have also moved to the body
@@ -45,6 +45,6 @@ class TweetsController < ApplicationController
 		  "Code:#{response.code} Body:#{response.body}"
 		end
 
-	end 
+	end
 
 end
